@@ -1,0 +1,11 @@
+.page-header
+  %h1= @report.name
+%p
+  %strong Name:
+  %br
+  = @report.name
+
+.form-actions
+  = link_to 'Back', reports_path, class: 'btn'
+  = link_to 'Edit', edit_report_path(@report), class: 'btn'
+  = link_to 'Destroy', @report, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger'

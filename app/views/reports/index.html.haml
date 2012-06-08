@@ -1,0 +1,15 @@
+.page-header
+  %h1 Reports
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+  %tbody
+    - @reports.each do |report|
+      %tr
+        %td= link_to report.name, report
+        %td
+          = link_to 'Edit', edit_report_path(report), class: 'btn btn-mini'
+          = link_to 'Destroy', report, method: :delete, confirm: 'Are you sure?', class: 'btn btn-mini btn-danger'
+
+= link_to 'New', new_report_path, class: 'btn btn-primary'
