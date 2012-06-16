@@ -5,7 +5,28 @@
   %br
   = @report.name
 
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Cost
+      %th Purchase Date
+      %th Justification
+  %tbody
+    - @expenses.each do |expense|
+      %tr
+        %td= expense.title
+        %td= expense.cost
+        %td= expense.purchase_date
+        %td= justification
+        %td
+          = link_to 'Edit', [@report, expense], class: 'btn btn-mini'
+          = link_to 'Destroy', [@report, expense], method: :delete, confirm: 'Are you sure?', class: 'btn btn-mini btn-danger'
+
 .form-actions
-  = link_to 'Back', reports_path, class: 'btn'
-  = link_to 'Edit', edit_report_path(@report), class: 'btn'
-  = link_to 'Destroy', @report, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger'
+  .pull-left
+    = link_to 'New Expense', new_report_expense_path(@report.id), class: 'btn btn-primary'
+  .pull-right
+    = link_to 'Back', reports_path, class: 'btn'
+    = link_to 'Edit', edit_report_path(@report), class: 'btn'
+    = link_to 'Destroy', @report, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger'

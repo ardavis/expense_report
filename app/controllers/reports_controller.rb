@@ -5,6 +5,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @expenses = @report.expenses
   end
 
   def new

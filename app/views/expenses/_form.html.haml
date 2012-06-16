@@ -1,0 +1,10 @@
+= form_for [@report, @expense] do |f|
+  .control-group
+    = f.label :title, class: 'control-label'
+
+    .controls
+      = f.text_field :title, class: 'text_field'
+
+    .form-actions
+      = f.submit nil, class: 'btn btn-primary'
+      = link_to 'Cancel', report_expense_path(@report), class: 'btn'
